@@ -1,0 +1,36 @@
+{
+  "name": "aether-finance",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aether Finance — Angular + NestJS + Neon + Tailwind",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "start:api": "npm run start:dev --workspace=apps/api",
+    "start:web": "npm run start --workspace=apps/web",
+    "build:api": "npm run build --workspace=apps/api",
+    "build:web": "npm run build --workspace=apps/web",
+    "build": "npm run build:api && npm run build:web",
+    "test:api": "npm run test --workspace=apps/api",
+    "lint": "echo \"Add ESLint/Prettier across workspaces\"",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:deploy": "prisma migrate deploy",
+    "prisma:studio": "prisma studio",
+    "db:seed": "ts-node prisma/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.5.0"
+  },
+  "devDependencies": {
+    "prisma": "^6.5.0",
+    "typescript": "~5.7.2",
+    "ts-node": "^10.9.2",
+    "@types/node": "^22.10.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
